@@ -30,14 +30,21 @@ For a one-off run without installing the tool, replace the first
 ```bash
 agentseek create bub/default --no-input
 cd my_bub_agent
+```
+
+Prepare the generated project.
+
+```bash
 cp .env.example .env
+$EDITOR .env
 uv sync
 npm install --prefix frontend
 ```
 
-Set the model and provider credentials required by the selected template.
-AgentSeek reads `.env` only for variables declared by the template lifecycle
-spec; it does not inject `.env` into child processes.
+Set the model and provider credentials required by the selected template in
+`.env` or the environment used to run AgentSeek. AgentSeek uses `.env` only for
+lifecycle environment checks declared by the template; it does not automatically
+pass `.env` to child processes.
 
 ```bash
 agentseek doctor
@@ -65,11 +72,11 @@ template can expose the same lifecycle commands with different runtimes.
 
 ## Documentation
 
-- [Documentation home](docs/index.md)
-- [Get started](docs/get-started/index.md)
-- [Guides](docs/guides/index.md)
-- [Reference](docs/reference/index.md)
-- [Concepts](docs/concepts/index.md)
+- [Documentation home](https://ob-labs.github.io/agentseek/)
+- [Get started](https://ob-labs.github.io/agentseek/get-started/)
+- [Guides](https://ob-labs.github.io/agentseek/guides/)
+- [Reference](https://ob-labs.github.io/agentseek/reference/)
+- [Concepts](https://ob-labs.github.io/agentseek/concepts/)
 
 ## Development
 

@@ -28,18 +28,26 @@ uv tool install agentseek
 ```bash
 agentseek create bub/default --no-input
 cd my_bub_agent
+```
+
+准备生成出的项目：
+
+```bash
 cp .env.example .env
+$EDITOR .env
 uv sync
 npm install --prefix frontend
 ```
 
-在 `.env` 中设置 `BUB_MODEL` 和对应 provider key，然后使用外部生命周期命令：
+在 `.env` 或运行 AgentSeek 的环境里，设置所选模板需要的模型和 provider
+凭证。AgentSeek 只把 `.env` 用作模板声明的生命周期环境检查来源，不会把
+`.env` 自动传给子进程。
+
+准备好 `.env` 和本地依赖后，再运行就绪检查和本地开发栈：
 
 ```bash
 agentseek doctor
 agentseek dev
-agentseek info
-agentseek task --list
 ```
 
 ## 生命周期命令
@@ -54,11 +62,11 @@ agentseek task --list
 
 ## 文档
 
-- [文档首页](docs/index.md)
-- [快速开始](docs/get-started/index.md)
-- [指南](docs/guides/index.md)
-- [参考](docs/reference/index.md)
-- [概念](docs/concepts/index.md)
+- [文档首页](https://ob-labs.github.io/agentseek/zh/)
+- [快速开始](https://ob-labs.github.io/agentseek/zh/get-started/)
+- [指南](https://ob-labs.github.io/agentseek/zh/guides/)
+- [参考](https://ob-labs.github.io/agentseek/zh/reference/)
+- [概念](https://ob-labs.github.io/agentseek/zh/concepts/)
 
 ## 开发
 
